@@ -116,13 +116,13 @@ let scoringAlgorithms = [
 ];
 
 function scorerPrompt() {
-   let info = input.question(`Which scoring algorithm would you like to use?\nOption 0 - Simple Score: 1 Point Per Letter\nOption 1 - Bonus Vowels: Vowels Are 3 Points\nOption 2 - Scrabble: Scrabble Point System\nEnter 0, 1, or 2: `);
+   let info = input.question(`Which scoring algorithm would you like to use?\nOption 0 - ${scoringAlgorithms[0].name}: 1 Point Per Letter\nOption 1 - ${scoringAlgorithms[1].name}: Vowels Are 3 Points\nOption 2 - ${scoringAlgorithms[2].name}: Scrabble Point System\nEnter 0, 1, or 2: `);
       if (info == 0) {
-         console.log(`Score for "${word}": ${simpleScorer(word)}`);
+         console.log(`Score for "${word}": ${scoringAlgorithms[0].scorerFunction(word)}`);
       } else if (info == 1) {
-         console.log(`Score for "${word}": ${vowelBonusScorer(word)}`);
+         console.log(`Score for "${word}": ${scoringAlgorithms[1].scorerFunction(word)}`);
       } else if (info == 2) {
-         console.log(`Score for "${word}": ${scrabbleScorer(word)}`);
+         console.log(`Score for "${word}": ${scoringAlgorithms[2].scorerFunction(word)}`);
       }
    return info
 }
